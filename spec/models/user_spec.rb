@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(@user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include("Email has already been taken")
 
 
       end
@@ -113,6 +113,9 @@ RSpec.describe User, type: :model do
 
       end
       it "last_name_kanaが全角（カタカナ）でなければ登録できない" do
+        @user.last_name_kana = 'last123かな名字'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana is invalid")
 
       end
       it "first_name_kanaが空では登録できない" do
@@ -123,6 +126,9 @@ RSpec.describe User, type: :model do
 
       end
       it "first_name_kanaが全角（カタカナ）でなければ登録できない" do
+        @user.first_name_kana = 'first123かな名前'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana is invalid")
 
       end
       it "birth_dateが空では登録できない" do
