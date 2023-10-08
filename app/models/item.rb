@@ -8,7 +8,6 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  
 
   validates :name, presence: true
   validates :detail, presence: true
@@ -20,16 +19,15 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :image, presence: true
 
-
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" } 
-  validates :condition_id, numericality: { other_than: 1, message: "can't be blank" } 
-  validates :shipping_charge_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :shipping_date_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_charge_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_date_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :price, numericality: {
     greater_than_or_equal_to: 300,
     less_than_or_equal_to: 9_999_999,
-    only_integer: true  
+    only_integer: true
   }
   validates_format_of :price, with: /\A[0-9]+\z/
 end
