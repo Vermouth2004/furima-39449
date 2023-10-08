@@ -1,10 +1,19 @@
 function calculate (){
-  const itemPrice = document.getElementById("item-price")
+  const itemPrice = document.getElementById("item-price");
 
   itemPrice.addEventListener("keyup", () => {
-    const totalPrice = itemPrice.value
-    const taxPrice = totalPrice*0.1
-    const profit = totalPrice-taxPrice
+    const totalPrice = itemPrice.value;
+    const taxPrice = Math.floor(totalPrice*0.1);
+    const profitPrice = totalPrice-taxPrice;
+    
+    
+    const addTaxPrice = document.getElementById('add-tax-price');
+    const profit = document.getElementById('profit');
+
+    addTaxPrice.innerHTML = Math.floor(taxPrice);
+    profit.innerHTML = Math.floor(profitPrice);
+
+
     
   });
   

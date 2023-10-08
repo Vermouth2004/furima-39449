@@ -29,7 +29,7 @@ class Item < ApplicationRecord
   validates :price, numericality: {
     greater_than_or_equal_to: 300,
     less_than_or_equal_to: 9_999_999,
-    only_integer: true  # 半角数値のみを許可
+    only_integer: true  
   }
   validates_format_of :price, with: /\A[0-9]+\z/
 end
