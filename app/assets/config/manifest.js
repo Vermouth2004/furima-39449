@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= link application.css
 //= link shared/header.css
+//= link items/new.css
