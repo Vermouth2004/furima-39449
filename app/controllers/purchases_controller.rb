@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   def index
     @purchase = Purchase.new
     @item = Item.find(params[:id])
-    
+
   end
 
   def create
