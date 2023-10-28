@@ -1,23 +1,24 @@
 class PurchasesController < ApplicationController
 
   def index
-    # @purchase = Purchase.new
-    # @item = Item.find(params[:item_id])
-  end
-
-
-  def new
+    @item = Item.find(params[:item_id])
     @purchase_address = PurchaseAddress.new
   end
 
 
+  # def new
+    
+  # end
+
+
   def create
     @purchase_address = PurchaseAddress.new(purchase_params)
+    @item = Item.find(params[:item_id])
     if @purchase_address.valid?
       @purchase_address.save
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
     
   end
