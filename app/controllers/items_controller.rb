@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return if @item.user == current_user
+    return if @item.user == current_user && @item.purchase.blank?
 
     redirect_to action: :index
   end
