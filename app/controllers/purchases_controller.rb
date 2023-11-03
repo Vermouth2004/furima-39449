@@ -9,16 +9,9 @@ class PurchasesController < ApplicationController
     @purchase_address = PurchaseAddress.new
     if  current_user.id == @item.user_id || @item.purchase.present?
       redirect_to root_path 
-    else
-
+  
     end
   end
-
-
-  # def new
-    
-  # end
-
 
   def create
     @purchase_address = PurchaseAddress.new(purchase_params)
@@ -27,14 +20,11 @@ class PurchasesController < ApplicationController
       @purchase_address.save
       redirect_to root_path
     else
-      gon.public_kdy = ENV["PAYJP_PUBLIC_KEY"]
+      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       render :index, status: :unprocessable_entity
-    end
+    ende
     
   end
-
-
-  
 
 
   private
