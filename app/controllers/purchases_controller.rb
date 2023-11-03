@@ -22,7 +22,7 @@ class PurchasesController < ApplicationController
     else
       gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       render :index, status: :unprocessable_entity
-    ende
+    end
     
   end
 
